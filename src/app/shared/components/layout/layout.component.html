@@ -2,16 +2,28 @@
 <!-- Navbar -->
 <!-- Footer -->
 <div class="wrapper">
-  <aside class="w-52 border-r-2"><app-side-bar></app-side-bar></aside>
-  <main class="flex-1 flex flex-col">
-    <nav class="h-12 border-b-2">
-      <app-nav-bar></app-nav-bar>
-    </nav>
-    <div class="h-full p-5 overflow-auto">
-      <ng-content select="router-outlet"></ng-content>
+  <!-- LoggedIn User Layout -->
+  <ng-container *ngIf="authService.isLoggedIn$() | async; else unauthenticated">
+    <aside class="w-52 border-r-2"><app-side-bar></app-side-bar></aside>
+    <main class="flex-1 flex flex-col">
+      <nav class="h-12 border-b-2">
+        <app-nav-bar></app-nav-bar>
+      </nav>
+      <div class="h-full p-5 overflow-auto">
+        <router-outlet></router-outlet>
+      </div>
+      <div class="h-12 border-t-2">
+        <app-footer></app-footer>
+      </div>
+    </main>
+  </ng-container>
+
+  <!-- Not Logged In User Layout -->
+  <ng-template #unauthenticated>
+    <div
+      class="min-w-[350px] absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]"
+    >
+      <router-outlet></router-outlet>
     </div>
-    <div class="h-12 border-t-2">
-      <app-footer></app-footer>
-    </div>
-  </main>
+  </ng-template>
 </div>

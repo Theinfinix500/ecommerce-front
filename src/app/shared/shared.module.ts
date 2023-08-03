@@ -4,6 +4,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
     FooterComponent,
     SideBarComponent,
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   exports: [
     LayoutComponent,
     FooterComponent,

@@ -1,0 +1,26 @@
+<h1 class="mb-5 font-bold text-center">Login</h1>
+<form (ngSubmit)="onSubmit()">
+  <div class="form-control">
+    <label for="username">Username</label>
+    <input
+      id="username"
+      type="text"
+      [(ngModel)]="login.username"
+      name="username"
+    />
+  </div>
+  <div class="form-control mt-5">
+    <label for="password">Password</label>
+    <input
+      id="password"
+      type="password"
+      [(ngModel)]="login.password"
+      name="password"
+    />
+  </div>
+  <div>
+    <button class="p-1 mt-5 bg-blue-500 text-white rounded w-full">
+      Sign In
+    </button>
+  </div>
+</form>

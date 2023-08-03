@@ -1,0 +1,7 @@
+input {
+  @apply outline-none border;
+}
+
+.form-control {
+  @apply flex flex-col;
+}
