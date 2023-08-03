@@ -26,6 +26,13 @@ export class ProductsService {
             picture: {
               ...product.picture,
               url: `${this.BACKEND_URL}${product.picture.url}`,
+              formats: {
+                ...product.picture.formats,
+                thumbnail: {
+                  ...product.picture.formats.thumbnail,
+                  url: `${this.BACKEND_URL}${product.picture.formats.thumbnail.url}`,
+                },
+              },
             },
           }))
         )

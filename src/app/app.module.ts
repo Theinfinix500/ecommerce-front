@@ -8,6 +8,13 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor } from './jwt.interceptor';
 import { take } from 'rxjs';
 import { LoginService } from '@services/login.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconModule } from '@angular/material/icon';
+import {
+  LazyLoadImageModule,
+  LAZYLOAD_IMAGE_HOOKS,
+  ScrollHooks,
+} from 'ng-lazyload-image';
 
 export const BACKEND_URL = new InjectionToken<string>('BACKEND_URL');
 
@@ -39,7 +46,15 @@ function connectedUserInit(
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SharedModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatIconModule,
+    LazyLoadImageModule,
+  ],
   providers: [
     { provide: BACKEND_URL, useValue: 'http://localhost:1337' },
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -49,6 +64,7 @@ function connectedUserInit(
       multi: true,
       deps: [AuthService, LoginService],
     },
+    { provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks },
   ],
   bootstrap: [AppComponent],
 })
