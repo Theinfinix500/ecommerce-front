@@ -18,7 +18,6 @@ function connectedUserInit(
   const jwt = loginService.getJwt();
   return (): Promise<void> => {
     return new Promise((resolve, reject) => {
-      // async stuff
       if (jwt) {
         authService
           .initConnectedUser()
