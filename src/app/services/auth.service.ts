@@ -1,6 +1,5 @@
 import { Login, LoginService } from './login.service';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
 import { User } from '@models/user.model';
 import {
   BehaviorSubject,
@@ -20,7 +19,7 @@ export class AuthService {
   );
   private _connectedUser = new BehaviorSubject<User | null>(null);
 
-  constructor(private loginService: LoginService, private router: Router) {}
+  constructor(private loginService: LoginService) {}
 
   signIn(credentials: Login) {
     return this.loginService.login(credentials).pipe(
@@ -46,7 +45,7 @@ export class AuthService {
     return this.loginService.getConnectedUser().pipe(
       tap((user) => {
         this._connectedUser.next(user);
-        this.router.navigateByUrl('home');
+        // this.router.navigateByUrl('home');
       }),
       catchError((error) => {
         return throwError(() => new Error(error));
