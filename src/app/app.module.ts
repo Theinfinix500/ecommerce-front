@@ -1,5 +1,10 @@
 import { AuthService } from '@services/auth.service';
-import { NgModule, InjectionToken, APP_INITIALIZER } from '@angular/core';
+import {
+  NgModule,
+  InjectionToken,
+  APP_INITIALIZER,
+  LOCALE_ID,
+} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,6 +20,9 @@ import {
   LAZYLOAD_IMAGE_HOOKS,
   ScrollHooks,
 } from 'ng-lazyload-image';
+import localeFr from '@angular/common/locales/fr';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeFr);
 
 export const BACKEND_URL = new InjectionToken<string>('BACKEND_URL');
 
@@ -65,6 +73,7 @@ function connectedUserInit(
       deps: [AuthService, LoginService],
     },
     { provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks },
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
   ],
   bootstrap: [AppComponent],
 })
