@@ -1,0 +1,12 @@
+img {
+  transition: transform, opacity, 1s ease-in-out;
+  opacity: 0;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &.ng-lazyloaded {
+    opacity: 1;
+  }
+}

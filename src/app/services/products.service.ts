@@ -38,4 +38,27 @@ export class ProductsService {
         )
       );
   }
+
+  getProduct(productId: number) {
+    return this.http
+      .get<StrapiResponse<Product>>(
+        `${this.BACKEND_URL}/api/products/${productId}?populate=*`
+      )
+      .pipe(
+        map(({ data: product }) => ({
+          ...product,
+          picture: {
+            ...product.picture,
+            url: `${this.BACKEND_URL}${product.picture.url}`,
+            formats: {
+              ...product.picture.formats,
+              thumbnail: {
+                ...product.picture.formats.thumbnail,
+                url: `${this.BACKEND_URL}${product.picture.formats.thumbnail.url}`,
+              },
+            },
+          },
+        }))
+      );
+  }
 }

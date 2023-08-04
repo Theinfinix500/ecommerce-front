@@ -1,0 +1,21 @@
+<div *ngIf="product$ | async as product" class="flex gap-7 px-8">
+  <div class="max-w-[600px]">
+    <img
+      class="w-full h-full object-cover object-top"
+      [defaultImage]="product.picture.formats.thumbnail.url"
+      [lazyLoad]="product.picture.url"
+      [alt]="product.picture.name"
+    />
+  </div>
+  <div class="min-w-[500px]">
+    <!-- product details -->
+    <h3>{{ product.title }}</h3>
+    <span class="font-bold text-lg">{{
+      product.price | currency : "MAD" : "DH" : "" : "fr-FR"
+    }}</span>
+    <p class="my-4">{{ product.description }}</p>
+    <button class="mt-10 px-2 py-1 bg-slate-600 text-white rounded w-full uppercase">
+      Add to cart
+    </button>
+  </div>
+</div>
