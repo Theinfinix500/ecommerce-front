@@ -22,7 +22,7 @@
           >Products</a
         >
       </li>
-      <li >
+      <li>
         <a
           routerLink="/cart"
           routerLinkActive="active-route"
@@ -32,7 +32,7 @@
       </li>
     </ul>
   </div>
-  <div class="">
+  <div class="flex items-center">
     <button
       mat-icon-button
       aria-label="Example icon button with a vertical three dot icon"
@@ -44,16 +44,22 @@
         >person</mat-icon
       >
     </button>
-    <button
-      mat-icon-button
-      aria-label="Example icon button with a vertical three dot icon"
-    >
-      <mat-icon
-        aria-hidden="false"
-        aria-label="Example home icon"
-        fontSet="material-icons-outlined"
-        >shopping_cart</mat-icon
+    <div class="relative">
+      <span
+        class="absolute flex items-center justify-center z-10 top-[2px] right-0 w-5 h-5 bg-blue-500 text-white text-sm rounded-full"
+        >1</span
       >
-    </button>
+      <button
+        mat-icon-button
+        aria-label="Example icon button with a vertical three dot icon"
+      >
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontSet="material-icons-outlined"
+          >shopping_cart</mat-icon
+        >
+      </button>
+    </div>
   </div>
 </div>
