@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
-import { JwtInterceptor } from './jwt.interceptor';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
 import { take } from 'rxjs';
 import { LoginService } from '@services/login.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
