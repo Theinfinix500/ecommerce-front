@@ -22,6 +22,7 @@ import {
 } from 'ng-lazyload-image';
 import localeFr from '@angular/common/locales/fr';
 import { registerLocaleData } from '@angular/common';
+import { AuthModule } from './auth/auth.module';
 registerLocaleData(localeFr);
 
 export const BACKEND_URL = new InjectionToken<string>('BACKEND_URL');
@@ -56,12 +57,13 @@ function connectedUserInit(
   declarations: [AppComponent],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     SharedModule,
     HttpClientModule,
     BrowserAnimationsModule,
     MatIconModule,
     LazyLoadImageModule,
+    AuthModule,
+    AppRoutingModule,
   ],
   providers: [
     { provide: BACKEND_URL, useValue: 'http://localhost:1337' },

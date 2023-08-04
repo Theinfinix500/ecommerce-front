@@ -19,12 +19,12 @@ const routes: Routes = [
   },
   {
     path: 'products',
+    canActivate: [authGuard, hasRoleGuard],
+    data: {
+      role: ['Admin', 'User'],
+    },
     loadChildren: () =>
       import('./products/products.module').then((m) => m.ProductsModule),
-  },
-  {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
   },
 ];
 
