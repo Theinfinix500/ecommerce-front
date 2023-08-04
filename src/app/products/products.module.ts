@@ -10,10 +10,18 @@ import {
 } from 'ng-lazyload-image';
 import { DetailComponent } from './detail/detail.component';
 import { ListComponent } from './list/list.component';
+import { MatIconModule } from '@angular/material/icon';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [ProductsComponent, DetailComponent, ListComponent],
-  imports: [CommonModule, ProductsRoutingModule, LazyLoadImageModule],
+  imports: [
+    CommonModule,
+    ProductsRoutingModule,
+    LazyLoadImageModule,
+    MatIconModule,
+    SharedModule,
+  ],
   providers: [{ provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }],
 })
 export class ProductsModule {}

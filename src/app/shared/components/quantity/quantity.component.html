@@ -1,0 +1,19 @@
+<button
+  (click)="reduceQty()"
+  class="bg-gray-300 w-14 h-14 inline-flex items-center justify-center"
+>
+  -
+</button>
+<input
+  (blur)="resetValueIfEmpty(input.value)"
+  #input
+  type="text"
+  class="w-14 text-center outline-none"
+  [(ngModel)]="qty"
+/>
+<button
+  (click)="addQty()"
+  class="bg-gray-300 w-14 h-14 inline-flex items-center justify-center"
+>
+  +
+</button>

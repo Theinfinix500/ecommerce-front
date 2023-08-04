@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './components/layout/layout.component';
@@ -7,6 +8,7 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { RouterModule } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { QuantityComponent } from './components/quantity/quantity.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,21 @@ import { MatButtonModule } from '@angular/material/button';
     NavBarComponent,
     FooterComponent,
     SideBarComponent,
+    QuantityComponent,
   ],
-  imports: [CommonModule, RouterModule, MatIconModule, MatButtonModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatIconModule,
+    MatButtonModule,
+    FormsModule,
+  ],
   exports: [
     LayoutComponent,
     FooterComponent,
     NavBarComponent,
     SideBarComponent,
+    QuantityComponent,
   ],
 })
 export class SharedModule {}
