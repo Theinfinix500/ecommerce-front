@@ -7,7 +7,22 @@
       [alt]="product.picture.name"
     />
   </div>
-  <div class="min-w-[500px]">
+  <div class="min-w-[500px] relative">
+    <!-- commands -->
+    <div class="absolute top-0 right-0" *appHasRole="'Admin'">
+      <button
+        [routerLink]="'../../edit/' + product.id"
+        mat-icon-button
+        aria-label="Example icon button with a vertical three dot icon"
+      >
+        <mat-icon
+          aria-hidden="false"
+          aria-label="Example home icon"
+          fontSet="material-icons-outlined"
+          >edit</mat-icon
+        >
+      </button>
+    </div>
     <!-- product details -->
     <h3 class="font-semibold text-3xl">{{ product.title }}</h3>
     <div class="my-10">

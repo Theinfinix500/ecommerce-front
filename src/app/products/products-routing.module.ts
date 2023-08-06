@@ -4,6 +4,8 @@ import { ProductsComponent } from './products.component';
 import { ListComponent } from './list/list.component';
 import { DetailComponent } from './detail/detail.component';
 import { productDetailsResolver } from '../resolvers/product-details.resolver';
+import { EditComponent } from './edit/edit.component';
+import { hasRoleGuard } from '../auth/guards/has-role.guard';
 
 const routes: Routes = [
   {
@@ -14,6 +16,17 @@ const routes: Routes = [
       {
         path: 'detail/:productId',
         component: DetailComponent,
+        resolve: {
+          product: productDetailsResolver,
+        },
+      },
+      {
+        path: 'edit/:productId',
+        component: EditComponent,
+        canActivate: [hasRoleGuard],
+        data: {
+          role: ['Admin'],
+        },
         resolve: {
           product: productDetailsResolver,
         },
