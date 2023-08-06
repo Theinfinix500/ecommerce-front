@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
@@ -15,9 +16,10 @@ import { SharedModule } from '@shared/shared.module';
 import { MatButtonModule } from '@angular/material/button';
 import { HasRoleDirective } from '@shared/directives/has-role.directive';
 import { EditComponent } from './edit/edit.component';
+import { ProductFormComponent } from './product-form/product-form.component';
 
 @NgModule({
-  declarations: [ProductsComponent, DetailComponent, ListComponent, EditComponent],
+  declarations: [ProductsComponent, DetailComponent, ListComponent, EditComponent, ProductFormComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,
@@ -25,7 +27,8 @@ import { EditComponent } from './edit/edit.component';
     MatIconModule,
     MatButtonModule,
     SharedModule,
-    HasRoleDirective
+    HasRoleDirective,
+    FormsModule
   ],
   providers: [{ provide: LAZYLOAD_IMAGE_HOOKS, useClass: ScrollHooks }],
 })

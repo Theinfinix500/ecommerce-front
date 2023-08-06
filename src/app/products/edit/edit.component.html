@@ -1,1 +1,17 @@
-<p>edit works!</p>
+<div *ngIf="product$ | async as product" class="flex gap-7 px-8">
+  <div class="max-w-[600px]">
+    <img
+      class="w-full h-full object-cover object-top"
+      [defaultImage]="product.picture.formats.thumbnail.url"
+      [lazyLoad]="product.picture.url"
+      [alt]="product.picture.name"
+    />
+  </div>
+  <div class="min-w-[500px] relative">
+    <!-- product form -->
+    <app-product-form
+      [productData]="product"
+      (submitForm)="onSubmit($event)"
+    ></app-product-form>
+  </div>
+</div>

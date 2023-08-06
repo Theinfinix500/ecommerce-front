@@ -4,6 +4,7 @@ import { map } from 'rxjs';
 import { StrapiResponse } from '@models/strapi-response-data.model';
 import { Product } from '@models/product.model';
 import { BACKEND_URL } from '../app.module';
+import { ProductForm } from '@models/product-form.model';
 
 @Injectable({
   providedIn: 'root',
@@ -60,5 +61,11 @@ export class ProductsService {
           },
         }))
       );
+  }
+
+  editProduct({ id, ...product }: ProductForm) {
+    return this.http.put(`${this.BACKEND_URL}/api/products/${id}`, {
+      data: { ...product },
+    });
   }
 }
