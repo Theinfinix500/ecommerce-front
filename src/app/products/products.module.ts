@@ -17,9 +17,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { HasRoleDirective } from '@shared/directives/has-role.directive';
 import { EditComponent } from './edit/edit.component';
 import { ProductFormComponent } from './product-form/product-form.component';
+import { NewProductComponent } from './new-product/new-product.component';
 
 @NgModule({
-  declarations: [ProductsComponent, DetailComponent, ListComponent, EditComponent, ProductFormComponent],
+  declarations: [ProductsComponent, DetailComponent, ListComponent, EditComponent, ProductFormComponent, NewProductComponent],
   imports: [
     CommonModule,
     ProductsRoutingModule,

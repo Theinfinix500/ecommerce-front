@@ -1,0 +1,8 @@
+<div class="flex gap-7 px-8">
+  <div class="max-w-[600px]">
+    <input type="file" (change)="handleFile($event)" />
+  </div>
+  <div class="min-w-[500px] relative">
+    <app-product-form (submitForm)="onSubmit($event)"></app-product-form>
+  </div>
+</div>

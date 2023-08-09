@@ -1,4 +1,18 @@
-<h1>Products</h1>
+<div class="flex items-center justify-end mb-8" *appHasRole="'Admin'">
+  <button
+    [routerLink]="'./new'"
+    class="px-8 py-3 bg-blue-500 text-white uppercase flex items-center justify-center"
+  >
+    <mat-icon
+      class="mr-3"
+      aria-hidden="false"
+      aria-label="Example home icon"
+      fontSet="material-icons-outlined"
+      >add</mat-icon
+    >
+    New Product
+  </button>
+</div>
 <!-- container -->
 <div class="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr))] gap-5">
   <!-- item which can be tranformed to a component -->
@@ -8,7 +22,7 @@
   >
     <a [routerLink]="['/products/detail/', product.id]">
       <div class="h-[60%] overflow-hidden">
-        <img
+        <img *ngIf="product.picture.url"
           class="w-full h-full object-cover object-top"
           [defaultImage]="product.picture.formats.thumbnail.url"
           [lazyLoad]="product.picture.url"
