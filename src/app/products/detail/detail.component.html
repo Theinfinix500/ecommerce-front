@@ -2,8 +2,7 @@
   <div class="max-w-[600px]">
     <img
       class="w-full h-full object-cover object-top"
-      [defaultImage]="product.picture.formats.thumbnail.url"
-      [lazyLoad]="product.picture.url"
+      [src]="product.picture.url"
       [alt]="product.picture.name"
     />
   </div>
